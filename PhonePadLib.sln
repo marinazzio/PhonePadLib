@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonePadTranslation", "PhonePadTranslation\PhonePadTranslation.csproj", "{0CA8FDDA-47EA-4610-B68F-331251BFD0DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonePadTranslation.Tests", "PhonePadTranslation.Tests\PhonePadTranslation.Tests.csproj", "{99971837-B9DC-4D30-B5C4-39EED89BC921}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CA8FDDA-47EA-4610-B68F-331251BFD0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA8FDDA-47EA-4610-B68F-331251BFD0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA8FDDA-47EA-4610-B68F-331251BFD0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA8FDDA-47EA-4610-B68F-331251BFD0DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99971837-B9DC-4D30-B5C4-39EED89BC921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99971837-B9DC-4D30-B5C4-39EED89BC921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99971837-B9DC-4D30-B5C4-39EED89BC921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99971837-B9DC-4D30-B5C4-39EED89BC921}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8532CC16-89A6-407A-B1C6-9AE4AA633E41}
+	EndGlobalSection
+EndGlobal
