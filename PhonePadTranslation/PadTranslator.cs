@@ -4,9 +4,9 @@ namespace PhonePadTranslation
 {
     public class PadTranslator
     {
-        private readonly InputValidator inputValidator;
+        private readonly IPadValidator inputValidator;
 
-        public PadTranslator(InputValidator inputValidator)
+        public PadTranslator(IPadValidator inputValidator)
         {
             this.inputValidator = inputValidator;
         }
