@@ -8,10 +8,16 @@ namespace PhonePadTranslation
 {
     public class InputValidator : IPadValidator
     {
+        private static readonly HashSet<char> permittedChars = new HashSet<char>
+        {
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '#', ' ', '*'
+        };
+
         public void ValidatePadInput(String input)
         {
             validateEmpty(input);
             validateEnding(input);
+            validateBadSymbols(input);
         }
 
         private void validateEmpty(String input)
@@ -27,6 +33,17 @@ namespace PhonePadTranslation
             if (!input.EndsWith("#"))
             {
                 throw new ArgumentException("Input must end with #");
+            }
+        }
+
+        private void validateBadSymbols(String input)
+        {
+            foreach (char c in input)
+            {
+                if (!permittedChars.Contains(c))
+                {
+                    throw new ArgumentException($"Invalid character: {c}");
+                }
             }
         }
     }
