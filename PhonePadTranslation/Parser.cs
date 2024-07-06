@@ -4,7 +4,7 @@ namespace PhonePadTranslation
 {
     public class Parser : IParser
     {
-        private readonly string SPLIT_REGEX = @"(\w)\1*|\s+";
+        private readonly string SPLIT_REGEX = @"([\w*])\1*|\s+";
 
         public List<Tuple<char, int>> Parse(string input)
         {
@@ -17,7 +17,11 @@ namespace PhonePadTranslation
                 var value = match.Value;
                 var count = value.Length;
 
-                if (value != " ")
+                if (value == "*")
+                {
+                    result.RemoveAt(result.Count - 1);
+                }
+                else if (value != " ")
                 {
                     result.Add(new Tuple<char, int>(value[0], count));
                 }

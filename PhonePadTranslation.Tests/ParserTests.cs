@@ -48,5 +48,21 @@
 
             Assert.That(subject.Parse(input), Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Parse_InputWithStar_OmitsTupleBeforeStar()
+        {
+            var input = "8 88777444666*664#";
+            var expected = new List<Tuple<char, int>> { 
+                new Tuple<char, int>('8', 1),
+                new Tuple<char, int>('8', 2),
+                new Tuple<char, int>('7', 3),
+                new Tuple<char, int>('4', 3),
+                new Tuple<char, int>('6', 2),
+                new Tuple<char, int>('4', 1)
+            };
+
+            Assert.That(subject.Parse(input), Is.EqualTo(expected));
+        }
     }
 }
