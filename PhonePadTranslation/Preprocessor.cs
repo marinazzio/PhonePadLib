@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace PhonePadTranslation
 {
     public class Preprocessor : IPreprocessor
@@ -6,21 +8,42 @@ namespace PhonePadTranslation
 
         public string Preprocess(string input)
         {
-            var result = input;
+            validateInput(input);
 
-            if (string.IsNullOrEmpty(input))
-			{
-				throw new System.ArgumentException("Input cannot be empty");
-			}
+            var result = compactSpaces(input);
 
-            var terminatorIndex = input.IndexOf(TERMINATOR);
+            var terminatorIndex = result.IndexOf(TERMINATOR);
 
             if (terminatorIndex >= 0)
-			{
-				result = input.Substring(0, terminatorIndex + 1);
-			}
+            {
+                result = result.Substring(0, terminatorIndex + 1);
+            }
 
-			return result;
+            return result;
+        }
+
+        private void validateInput(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new System.ArgumentException("Input cannot be empty");
+            }
+        }
+
+        private string compactSpaces(string input)
+        {
+            bool endsWithTerminator = input.EndsWith(TERMINATOR);
+
+            var result = input.TrimEnd(TERMINATOR).Trim();
+
+            result = Regex.Replace(result, @"\s+", " ");
+
+            if (endsWithTerminator)
+            {
+                result = result + TERMINATOR;
+            }
+
+            return result;
         }
     }
 }

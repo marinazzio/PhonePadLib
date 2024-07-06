@@ -57,5 +57,14 @@ namespace PhonePadTranslation.Tests
 
             Assert.That(subject.Preprocess(input), Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Preprocess_InputWithConsecutiveSpaces_ReturnsInputWithoutConsecutiveSpaces()
+        {
+            string input = " skd   fh93s  sdf hk8 #";
+            string expected = "skd fh93s sdf hk8#";
+
+            Assert.That(subject.Preprocess(input), Is.EqualTo(expected));
+        }
     }
 }
