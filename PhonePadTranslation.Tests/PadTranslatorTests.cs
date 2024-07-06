@@ -20,6 +20,13 @@ namespace PhonePadTranslation.Tests
         {
             Assert.That(subject.OldPhonePad("222#"), Is.EqualTo("C"));
         }
+
+        [Test]
+        [Ignore("This test is not implemented yet")]
+        public void OldPhonePad_TranslatesMultipleChars()
+        {
+            Assert.That(subject.OldPhonePad("2345#"), Is.EqualTo("ADGJ"));
+        }
         #endregion
 
         #region Incorrect input
@@ -36,7 +43,6 @@ namespace PhonePadTranslation.Tests
         }
 
         [Test]
-        [Ignore("This test is not implemented yet")]
         public void OldPhonePad_InvalidChar_ThrowsException()
         {
             Assert.Throws<ArgumentException>(() => subject.OldPhonePad("2A2#"));
