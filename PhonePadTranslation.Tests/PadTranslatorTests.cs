@@ -7,13 +7,16 @@ namespace PhonePadTranslation.Tests
         private PadTranslator subject;
         private Mock<IPadValidator> inputValidator;
         private Mock<IPreprocessor> preprocessor;
+        private Mock<IParser> parser;
 
         [SetUp]
         public void Setup()
         {
             preprocessor = new Mock<IPreprocessor>();
             inputValidator = new Mock<IPadValidator>();
-            subject = new PadTranslator(preprocessor.Object, inputValidator.Object);
+            parser = new Mock<IParser>();
+
+            subject = new PadTranslator(preprocessor.Object, inputValidator.Object, parser.Object);
         }
 
         #region Workflow
@@ -29,7 +32,7 @@ namespace PhonePadTranslation.Tests
             inputValidator.InSequence(sequence).Setup(v => v.ValidatePadInput(input));
 
             preprocessor.Verify(p => p.Preprocess(input), Times.Once);
-            inputValidator.Verify(validator => validator.ValidatePadInput(input), Times.Once);
+            inputValidator.Verify(validator => validator.ValidatePadInput(It.IsAny<string>()), Times.Once);
         }
         #endregion
 

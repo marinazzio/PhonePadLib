@@ -1,37 +1,26 @@
-﻿using System.ComponentModel;
-
-namespace PhonePadTranslation
+﻿namespace PhonePadTranslation
 {
     public class PadTranslator
     {
         private readonly IPreprocessor preprocessor;
         private readonly IPadValidator inputValidator;
+        private readonly IParser parser;
 
-        public PadTranslator(IPreprocessor preprocessor, IPadValidator inputValidator)
+        public PadTranslator(IPreprocessor preprocessor, IPadValidator inputValidator, IParser parser)
         {
             this.preprocessor = preprocessor;
             this.inputValidator = inputValidator;
+            this.parser = parser;
         }
 
         public String OldPhonePad(String input)
         {
             var prerpocessedInput = preprocessor.Preprocess(input);
-            inputValidator.ValidatePadInput(input);
-            
+            inputValidator.ValidatePadInput(prerpocessedInput);
+
+            var parsedInput = parser.Parse(prerpocessedInput);
+
             return "C";
-        }
-
-        private void ValidateInput(String input)
-        {
-            if (String.IsNullOrEmpty(input))
-            {
-                throw new ArgumentException("Input cannot be empty");
-            }
-
-            if (!input.EndsWith("#"))
-            {
-                throw new ArgumentException("Input must end with #");
-            }
         }
     }
 }
