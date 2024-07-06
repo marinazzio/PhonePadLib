@@ -11,6 +11,13 @@ namespace PhonePadTranslation.Tests
         }
 
         [Test]
+        public void Preprocess_ThePrimitiveInput_ReturnsInput()
+        {
+            string input = "222#";
+            Assert.That(subject.Preprocess(input), Is.EqualTo(input));
+        }
+
+        [Test]
         public void Preprocess_AnyInputEndsWithSharp_ReturnsInput()
         {
             string input = "asidiaw82hj21yh#";
