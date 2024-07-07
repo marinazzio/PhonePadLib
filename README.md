@@ -24,6 +24,10 @@ You need to have the following installed on your machine:
 	dotnet test
 	```
 
+## Example of usage
+
+The simple console application is provided to demonstrate the usage of the library: [Nokia3100](marinazzio/nokia3100)
+
 ## Platform support
 
 The library is built using .NET Core 8.0 and should run on any platform that supports .NET Core 8.0.
