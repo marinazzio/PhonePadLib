@@ -26,7 +26,7 @@ You need to have the following installed on your machine:
 
 ## Example of usage
 
-The simple console application is provided to demonstrate the usage of the library: [Nokia3100](marinazzio/nokia3100)
+The simple console application is provided to demonstrate the usage of the library: [Nokia3100](https://github.com/marinazzio/nokia3100)
 
 ## Platform support
 
