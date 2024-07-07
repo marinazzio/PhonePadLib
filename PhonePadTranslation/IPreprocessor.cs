@@ -1,4 +1,7 @@
-public interface IPreprocessor
+namespace PhonePadTranslation
 {
-    public String Preprocess(String input);
+    public interface IPreprocessor
+    {
+        public String Preprocess(String input);
+    }
 }
