@@ -26,7 +26,7 @@ You need to have the following installed on your machine:
 
 ## Example of usage
 
-The simple console application is provided to demonstrate the usage of the library: [Nokia3100](marinazzio/nokia3100)
+The simple console application is provided to demonstrate the usage of the library: [Nokia3100](https://github.com/marinazzio/nokia3100)
 
 ## Platform support
 
@@ -86,7 +86,7 @@ global.json file:
 
 ### Ubuntu 22.04
 ```
-» dotnet --info
+Â» dotnet --info
 .NET SDK:
  Version:           8.0.105
  Commit:            eae90abaaf
@@ -145,7 +145,7 @@ Time Elapsed 00:00:03.74
 
 ### Ubuntu 22.04
 ```
-» dotnet build
+Â» dotnet build
 MSBuild version 17.8.5+b5265ef37 for .NET
   Determining projects to restore...
   Restored /home/#####/PhonePadLib/PhonePadTranslation.Tests/PhonePadTranslation.Tests.csproj (in 2.75 sec).
@@ -185,7 +185,7 @@ Passed!  - Failed:     0, Passed:    24, Skipped:     4, Total:    28, Duration:
 
 ### Ubuntu 22.04
 ```
-» dotnet test
+Â» dotnet test
   Determining projects to restore...
   All projects are up-to-date for restore.
   PhonePadTranslation -> /home/#####/PhonePadLib/PhonePadTranslation/bin/Release/net8.0/PhonePadTranslation.dll
