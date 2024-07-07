@@ -9,6 +9,14 @@ namespace PhonePadTranslation
         private readonly IParser parser;
         private readonly IDictionary dictionary;
 
+        public PadTranslator()
+        {
+            preprocessor = new Preprocessor();
+            inputValidator = new InputValidator();
+            parser = new Parser();
+            dictionary = new PadDictionary();
+        }
+
         public PadTranslator(IPreprocessor preprocessor, IPadValidator inputValidator, IParser parser, IDictionary dictionary)
         {
             this.preprocessor = preprocessor;
