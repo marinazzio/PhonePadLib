@@ -25,7 +25,7 @@ namespace PhonePadTranslation
             this.dictionary = dictionary;
         }
 
-        public String OldPhonePad(String input)
+        public string OldPhonePad(string input)
         {
             StringBuilder result = new StringBuilder();
 

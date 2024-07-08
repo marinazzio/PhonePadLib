@@ -8,6 +8,6 @@ namespace PhonePadTranslation
 {
     public interface IPadValidator
     {
-        public void ValidatePadInput(String input);
+        public void ValidatePadInput(string input);
     }
 }

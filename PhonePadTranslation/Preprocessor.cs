@@ -12,7 +12,7 @@ namespace PhonePadTranslation
     {
         private readonly char TERMINATOR = '#';
 
-        private String inputString;
+        private string inputString;
         private StringBuilder result;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace PhonePadTranslation
         /// Creates a new Preprocessor instance.
         /// </summary>
         /// <param name="inputString">string value to be prepared for parser</param>
-        public Preprocessor(String inputString)
+        public Preprocessor(string inputString)
         {
             this.inputString = inputString;
             this.result = new StringBuilder();
@@ -37,7 +37,7 @@ namespace PhonePadTranslation
         /// </summary>
         /// <param name="inputString">string value to be prepared for parser</param>
         /// <returns></returns>
-        public String Preprocess(String inputString)
+        public string Preprocess(string inputString)
         {
             this.inputString = inputString;
             return Preprocess();
@@ -49,7 +49,7 @@ namespace PhonePadTranslation
         /// It doesn't actually checks the string for correctness, only prepares it for further processing.
         /// </summary>
         /// <returns>Preprocessed string; it could match the initial string</returns>
-        public String Preprocess()
+        public string Preprocess()
         {
             validateInput();
             compactSpaces();

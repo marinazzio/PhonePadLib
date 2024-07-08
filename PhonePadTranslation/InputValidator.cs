@@ -13,14 +13,14 @@ namespace PhonePadTranslation
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '#', ' ', '*'
         };
 
-        public void ValidatePadInput(String input)
+        public void ValidatePadInput(string input)
         {
             validateEmpty(input);
             validateEnding(input);
             validateBadSymbols(input);
         }
 
-        private void validateEmpty(String input)
+        private void validateEmpty(string input)
         {
             if (String.IsNullOrEmpty(input))
             {
@@ -28,7 +28,7 @@ namespace PhonePadTranslation
             }
         }
 
-        private void validateEnding(String input)
+        private void validateEnding(string input)
         {
             if (!input.EndsWith("#"))
             {
@@ -36,7 +36,7 @@ namespace PhonePadTranslation
             }
         }
 
-        private void validateBadSymbols(String input)
+        private void validateBadSymbols(string input)
         {
             foreach (char c in input)
             {
