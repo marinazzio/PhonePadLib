@@ -2,17 +2,30 @@
 
 namespace PhonePadTranslation
 {
+    /// <summary>
+    /// Parser for the validated input string.
+    ///
+    /// It uses spaces or symbol change in sequence to split the input string into a list of tuples.
+    /// </summary>
     public class PadInputParser : IPadInputParser
     {
         private readonly string SPLIT_REGEX = @"([\w*])\1*|\s+";
 
         private List<(char, int)> result;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public PadInputParser()
         {
             result = new List<(char, int)>();
         }
 
+        /// <summary>
+        /// Main parsing method.
+        /// </summary>
+        /// <param name="input">Validated input string.</param>
+        /// <returns>List of tuples for further using with the dictionary.</returns>
         public List<(char, int)> Parse(string input)
         {
             var matches = Regex.Matches(input, SPLIT_REGEX);
