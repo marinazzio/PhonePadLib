@@ -19,7 +19,10 @@ namespace PhonePadTranslation
 
                 if (value == "*")
                 {
-                    result.RemoveAt(result.Count - 1);
+                    if (result.Count > 0)
+                    {
+                        result.RemoveAt(result.Count - 1);
+                    }
                 }
                 else if (value != " ")
                 {

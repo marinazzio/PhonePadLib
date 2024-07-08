@@ -64,5 +64,16 @@
 
             Assert.That(subject.Parse(input), Is.EqualTo(expected));
         }
+
+        [Test]
+        public void Parse_InputWithFirstStar_DoesNotThrow()
+        {
+            var input = "*88#";
+            var expected = new List<Tuple<char, int>> { 
+                new Tuple<char, int>('8', 2)
+            };
+
+            Assert.That(subject.Parse(input), Is.EqualTo(expected));
+        }
     }
 }
