@@ -1,6 +1,6 @@
 namespace PhonePadTranslation
 {
-    public interface IPreprocessor
+    public interface IPadInputPreprocessor
     {
         public string Preprocess();
         public string Preprocess(string inputString);

@@ -8,7 +8,7 @@ namespace PhonePadTranslation
     ///
     /// Removes extra spaces and trims the string by the terminator.
     /// </summary>
-    public class Preprocessor : IPreprocessor
+    public class PadInputPreprocessor : IPadInputPreprocessor
     {
         private readonly char TERMINATOR = '#';
 
@@ -16,15 +16,15 @@ namespace PhonePadTranslation
         private StringBuilder result;
 
         /// <summary>
-        /// Creates a new Preprocessor instance with an empty input string.
+        /// Creates a new PadInputPreprocessor instance with an empty input string.
         /// </summary>
-        public Preprocessor() : this(String.Empty) { }
+        public PadInputPreprocessor() : this(String.Empty) { }
 
         /// <summary>
-        /// Creates a new Preprocessor instance.
+        /// Creates a new PadInputPreprocessor instance.
         /// </summary>
         /// <param name="inputString">string value to be prepared for parser</param>
-        public Preprocessor(string inputString)
+        public PadInputPreprocessor(string inputString)
         {
             this.inputString = inputString;
             this.result = new StringBuilder();

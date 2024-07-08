@@ -7,10 +7,10 @@ namespace PhonePadTranslation.Tests
     public class PadTranslatorTests
     {
         private PadTranslator subject;
-        private Mock<IPadValidator> inputValidator;
-        private Mock<IPreprocessor> preprocessor;
-        private Mock<IParser> parser;
-        private Mock<IDictionary> dictionary;
+        private Mock<IPadInputValidator> inputValidator;
+        private Mock<IPadInputPreprocessor> preprocessor;
+        private Mock<IPadInputParser> parser;
+        private Mock<IPadDictionary> dictionary;
 
         private static readonly Dictionary<(char, int), char> mockedDictionary = new Dictionary<(char, int), char>
         {
@@ -40,10 +40,10 @@ namespace PhonePadTranslation.Tests
         [SetUp]
         public void Setup()
         {
-            preprocessor = new Mock<IPreprocessor>();
-            inputValidator = new Mock<IPadValidator>();
-            parser = new Mock<IParser>();
-            dictionary = new Mock<IDictionary>();
+            preprocessor = new Mock<IPadInputPreprocessor>();
+            inputValidator = new Mock<IPadInputValidator>();
+            parser = new Mock<IPadInputParser>();
+            dictionary = new Mock<IPadDictionary>();
 
             setupStubs();
 
@@ -119,7 +119,7 @@ namespace PhonePadTranslation.Tests
                             }
                             else if (value != " ")
                             {
-                                acc.Add(new (char, int)(value[0], count));
+                                acc.Add((value[0], count));
                             }
 
                             return acc;

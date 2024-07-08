@@ -4,20 +4,20 @@ namespace PhonePadTranslation
 {
     public class PadTranslator
     {
-        private readonly IPreprocessor preprocessor;
-        private readonly IPadValidator inputValidator;
-        private readonly IParser parser;
-        private readonly IDictionary dictionary;
+        private readonly IPadInputPreprocessor preprocessor;
+        private readonly IPadInputValidator inputValidator;
+        private readonly IPadInputParser parser;
+        private readonly IPadDictionary dictionary;
 
         public PadTranslator()
         {
-            preprocessor = new Preprocessor();
-            inputValidator = new InputValidator();
-            parser = new Parser();
+            preprocessor = new PadInputPreprocessor();
+            inputValidator = new PadInputValidator();
+            parser = new PadInputParser();
             dictionary = new PadDictionary();
         }
 
-        public PadTranslator(IPreprocessor preprocessor, IPadValidator inputValidator, IParser parser, IDictionary dictionary)
+        public PadTranslator(IPadInputPreprocessor preprocessor, IPadInputValidator inputValidator, IPadInputParser parser, IPadDictionary dictionary)
         {
             this.preprocessor = preprocessor;
             this.inputValidator = inputValidator;

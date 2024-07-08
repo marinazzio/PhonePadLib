@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhonePadTranslation
 {
-    public class PadDictionary : IDictionary
+    public class PadDictionary : IPadDictionary
     {
         private static readonly Dictionary<char, char[]> charsMatrix = new Dictionary<char, char[]>
         {

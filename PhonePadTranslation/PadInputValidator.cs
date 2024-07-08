@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhonePadTranslation
 {
-    public class InputValidator : IPadValidator
+    public class PadInputValidator : IPadInputValidator
     {
         private static readonly HashSet<char> permittedChars = new HashSet<char>
         {

@@ -1,6 +1,6 @@
 ﻿namespace PhonePadTranslation
 {
-    public interface IDictionary
+    public interface IPadDictionary
     {
         public char Translate(char digit, int position);
     }

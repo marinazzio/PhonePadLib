@@ -1,13 +1,13 @@
 namespace PhonePadTranslation.Tests
 {
-    public class PreprocessorTest
+    public class PadInputPreprocessorTest
     {
-        private Preprocessor subject;
+        private PadInputPreprocessor subject;
 
         [SetUp]
         public void Setup()
         {
-            subject = new Preprocessor();
+            subject = new PadInputPreprocessor();
         }
 
         [Test]

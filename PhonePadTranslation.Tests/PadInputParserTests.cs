@@ -3,14 +3,14 @@
     /// <summary>
     /// Here we're expecting only correct input due to the workflow, so we're not testing for invalid input.
     /// </summary>
-    public class ParserTests
+    public class PadInputParserTests
     {
-        private Parser subject;
+        private PadInputParser subject;
 
         [SetUp]
         public void Setup()
         {
-            subject = new Parser();
+            subject = new PadInputParser();
         }
 
         [Test]
