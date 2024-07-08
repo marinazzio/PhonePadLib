@@ -1,49 +1,96 @@
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace PhonePadTranslation
 {
+    /// <summary>
+    /// Prepares the input string for further processing.
+    ///
+    /// Removes extra spaces and trims the string by the terminator.
+    /// </summary>
     public class Preprocessor : IPreprocessor
     {
         private readonly char TERMINATOR = '#';
 
-        public string Preprocess(string input)
+        private String inputString;
+        private StringBuilder result;
+
+        /// <summary>
+        /// Creates a new Preprocessor instance with an empty input string.
+        /// </summary>
+        public Preprocessor() : this(String.Empty) { }
+
+        /// <summary>
+        /// Creates a new Preprocessor instance.
+        /// </summary>
+        /// <param name="inputString">string value to be prepared for parser</param>
+        public Preprocessor(String inputString)
         {
-            validateInput(input);
-
-            var result = compactSpaces(input);
-
-            var terminatorIndex = result.IndexOf(TERMINATOR);
-
-            if (terminatorIndex >= 0)
-            {
-                result = result.Substring(0, terminatorIndex + 1);
-            }
-
-            return result;
+            this.inputString = inputString;
+            this.result = new StringBuilder();
         }
 
-        private void validateInput(string input)
+        /// <summary>
+        /// Checks the input string for presence, removes extra spaces and trims the string by the terminator.
+        ///
+        /// It doesn't actually checks the string for correctness, only prepares it for further processing.
+        /// </summary>
+        /// <param name="inputString">string value to be prepared for parser</param>
+        /// <returns></returns>
+        public String Preprocess(String inputString)
         {
-            if (string.IsNullOrEmpty(input))
+            this.inputString = inputString;
+            return Preprocess();
+        }
+
+        /// <summary>
+        /// Checks the input string for presence, removes extra spaces and trims the string by the terminator.
+        ///
+        /// It doesn't actually checks the string for correctness, only prepares it for further processing.
+        /// </summary>
+        /// <returns>Preprocessed string; it could match the initial string</returns>
+        public String Preprocess()
+        {
+            validateInput();
+            compactSpaces();
+            trimByTerminator();
+
+            return result.ToString();
+        }
+
+        private void validateInput()
+        {
+            if (String.IsNullOrEmpty(inputString))
             {
                 throw new System.ArgumentException("Input cannot be empty");
             }
         }
 
-        private string compactSpaces(string input)
+        private void compactSpaces()
         {
-            bool endsWithTerminator = input.EndsWith(TERMINATOR);
+            bool endsWithTerminator = inputString.EndsWith(TERMINATOR);
 
-            var result = input.TrimEnd(TERMINATOR).Trim();
-
-            result = Regex.Replace(result, @"\s+", " ");
+            result.Append(
+                Regex.Replace(
+                    inputString.TrimEnd(TERMINATOR).Trim(),
+                    @"\s+", " "
+                )
+            );
 
             if (endsWithTerminator)
             {
-                result = result + TERMINATOR;
+                result.Append(TERMINATOR);
             }
+        }
 
-            return result;
+        private void trimByTerminator()
+        {
+            var terminatorIndex = result.ToString().IndexOf(TERMINATOR);
+
+            if (terminatorIndex >= 0)
+            {
+                result.Remove(terminatorIndex + 1, result.Length - terminatorIndex - 1);
+            }
         }
     }
 }
