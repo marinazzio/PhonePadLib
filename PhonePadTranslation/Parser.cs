@@ -6,14 +6,14 @@ namespace PhonePadTranslation
     {
         private readonly string SPLIT_REGEX = @"([\w*])\1*|\s+";
 
-        private List<Tuple<char, int>> result;
+        private List<(char, int)> result;
 
         public Parser()
         {
-            result = new List<Tuple<char, int>>();
+            result = new List<(char, int)>();
         }
 
-        public List<Tuple<char, int>> Parse(string input)
+        public List<(char, int)> Parse(string input)
         {
             var matches = Regex.Matches(input, SPLIT_REGEX);
 
@@ -28,7 +28,7 @@ namespace PhonePadTranslation
                 }
                 else if (value != " ")
                 {
-                    result.Add(new Tuple<char, int>(value[0], count));
+                    result.Add(new (char, int)(value[0], count));
                 }
             });
 

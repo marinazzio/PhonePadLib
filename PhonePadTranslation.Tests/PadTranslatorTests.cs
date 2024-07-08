@@ -93,14 +93,14 @@ namespace PhonePadTranslation.Tests
                 .Returns('C');
         }
 
-        private List<Tuple<char, int>> stubParserResponse(string s)
+        private List<(char, int)> stubParserResponse(string s)
         {
             return
                 Regex
                     .Matches(s, @"([\w*])\1*|\s+")
                     .ToList()
                     .Aggregate(
-                        new List<Tuple<char, int>>(),
+                        new List<(char, int)>(),
                         (acc, match) =>
                         {
                             var value = match.Value;
@@ -119,7 +119,7 @@ namespace PhonePadTranslation.Tests
                             }
                             else if (value != " ")
                             {
-                                acc.Add(new Tuple<char, int>(value[0], count));
+                                acc.Add(new (char, int)(value[0], count));
                             }
 
                             return acc;
