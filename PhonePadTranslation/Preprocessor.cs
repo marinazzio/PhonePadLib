@@ -1,3 +1,4 @@
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace PhonePadTranslation
@@ -6,44 +7,59 @@ namespace PhonePadTranslation
     {
         private readonly char TERMINATOR = '#';
 
-        public string Preprocess(string input)
+        private string inputString;
+        private StringBuilder result;
+
+        public Preprocessor()
         {
-            validateInput(input);
-
-            var result = compactSpaces(input);
-
-            var terminatorIndex = result.IndexOf(TERMINATOR);
-
-            if (terminatorIndex >= 0)
-            {
-                result = result.Substring(0, terminatorIndex + 1);
-            }
-
-            return result;
+            result = new StringBuilder();
         }
 
-        private void validateInput(string input)
+        public string Preprocess(string input)
         {
-            if (string.IsNullOrEmpty(input))
+            this.inputString = input;
+
+            validateInput();
+            compactSpaces();
+            trimByTerminator();
+
+            return result.ToString();
+        }
+
+        private void validateInput()
+        {
+            if (string.IsNullOrEmpty(inputString))
             {
                 throw new System.ArgumentException("Input cannot be empty");
             }
         }
 
-        private string compactSpaces(string input)
+        private void compactSpaces()
         {
-            bool endsWithTerminator = input.EndsWith(TERMINATOR);
+            bool endsWithTerminator = inputString.EndsWith(TERMINATOR);
 
-            var result = input.TrimEnd(TERMINATOR).Trim();
-
-            result = Regex.Replace(result, @"\s+", " ");
+            result.Append(
+                Regex.Replace(
+                    inputString.TrimEnd(TERMINATOR).Trim(),
+                    @"\s+", " "
+                )
+            );
 
             if (endsWithTerminator)
             {
-                result = result + TERMINATOR;
+                result.Append(TERMINATOR);
             }
+        }
 
-            return result;
+        private void trimByTerminator()
+        {
+            var terminatorIndex = inputString.IndexOf(TERMINATOR);
+
+            result.Append(
+                terminatorIndex >= 0 ?
+                    inputString.Substring(0, terminatorIndex - 1) :
+                    inputString
+             );
         }
     }
 }
