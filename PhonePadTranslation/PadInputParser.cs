@@ -2,18 +2,18 @@
 
 namespace PhonePadTranslation
 {
-    public class Parser : IParser
+    public class PadInputParser : IPadInputParser
     {
         private readonly string SPLIT_REGEX = @"([\w*])\1*|\s+";
 
-        private List<Tuple<char, int>> result;
+        private List<(char, int)> result;
 
-        public Parser()
+        public PadInputParser()
         {
-            result = new List<Tuple<char, int>>();
+            result = new List<(char, int)>();
         }
 
-        public List<Tuple<char, int>> Parse(string input)
+        public List<(char, int)> Parse(string input)
         {
             var matches = Regex.Matches(input, SPLIT_REGEX);
 
@@ -28,7 +28,7 @@ namespace PhonePadTranslation
                 }
                 else if (value != " ")
                 {
-                    result.Add(new Tuple<char, int>(value[0], count));
+                    result.Add((value[0], count));
                 }
             });
 

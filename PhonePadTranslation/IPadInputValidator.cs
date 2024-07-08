@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PhonePadTranslation
 {
-    public interface IPadValidator
+    public interface IPadInputValidator
     {
-        public void ValidatePadInput(String input);
+        public void ValidatePadInput(string input);
     }
 }

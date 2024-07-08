@@ -1,13 +1,13 @@
 ﻿namespace PhonePadTranslation.Tests
 {
-    public class InputValidatorTests
+    public class PadInputValidatorTests
     {
-        private InputValidator subject;
+        private PadInputValidator subject;
 
         [SetUp]
         public void Setup()
         {
-            subject = new InputValidator();
+            subject = new PadInputValidator();
         }
 
         #region Correct input

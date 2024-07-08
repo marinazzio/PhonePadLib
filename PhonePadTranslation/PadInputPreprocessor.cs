@@ -8,23 +8,23 @@ namespace PhonePadTranslation
     ///
     /// Removes extra spaces and trims the string by the terminator.
     /// </summary>
-    public class Preprocessor : IPreprocessor
+    public class PadInputPreprocessor : IPadInputPreprocessor
     {
         private readonly char TERMINATOR = '#';
 
-        private String inputString;
+        private string inputString;
         private StringBuilder result;
 
         /// <summary>
-        /// Creates a new Preprocessor instance with an empty input string.
+        /// Creates a new PadInputPreprocessor instance with an empty input string.
         /// </summary>
-        public Preprocessor() : this(String.Empty) { }
+        public PadInputPreprocessor() : this(String.Empty) { }
 
         /// <summary>
-        /// Creates a new Preprocessor instance.
+        /// Creates a new PadInputPreprocessor instance.
         /// </summary>
         /// <param name="inputString">string value to be prepared for parser</param>
-        public Preprocessor(String inputString)
+        public PadInputPreprocessor(string inputString)
         {
             this.inputString = inputString;
             this.result = new StringBuilder();
@@ -37,7 +37,7 @@ namespace PhonePadTranslation
         /// </summary>
         /// <param name="inputString">string value to be prepared for parser</param>
         /// <returns></returns>
-        public String Preprocess(String inputString)
+        public string Preprocess(string inputString)
         {
             this.inputString = inputString;
             return Preprocess();
@@ -49,7 +49,7 @@ namespace PhonePadTranslation
         /// It doesn't actually checks the string for correctness, only prepares it for further processing.
         /// </summary>
         /// <returns>Preprocessed string; it could match the initial string</returns>
-        public String Preprocess()
+        public string Preprocess()
         {
             validateInput();
             compactSpaces();
