@@ -1,5 +1,8 @@
 ﻿namespace PhonePadTranslation
 {
+    /// <summary>
+    /// Validates pad input.
+    /// </summary>
     public class PadInputValidator : IPadInputValidator
     {
         private static readonly HashSet<char> permittedChars = new HashSet<char>
@@ -7,6 +10,14 @@
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '#', ' ', '*'
         };
 
+        /// <summary>
+        /// Main validation method.
+        /// 
+        /// It validates input for emptyness, ending and bad symbols.
+        ///
+        /// It raises exceptions in case of incorrect input.
+        /// </summary>
+        /// <param name="input">Pad input string to validate.</param>
         public void ValidatePadInput(string input)
         {
             validateEmpty(input);

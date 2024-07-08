@@ -2,6 +2,9 @@
 
 namespace PhonePadTranslation
 {
+    /// <summary>
+    /// Main class for translating input to old phone pad
+    /// </summary>
     public class PadTranslator
     {
         private readonly IPadInputPreprocessor preprocessor;
@@ -9,6 +12,11 @@ namespace PhonePadTranslation
         private readonly IPadInputParser parser;
         private readonly IPadDictionary dictionary;
 
+        /// <summary>
+        /// Default constructor.
+        ///
+        /// Initializes all the components with default implementations.
+        /// </summary>
         public PadTranslator()
         {
             preprocessor = new PadInputPreprocessor();
@@ -17,6 +25,13 @@ namespace PhonePadTranslation
             dictionary = new PadDictionary();
         }
 
+        /// <summary>
+        /// Constructor with custom components.
+        /// </summary>
+        /// <param name="preprocessor">Tool for preparing the input string for further processing.</param>
+        /// <param name="inputValidator">Validation workflow for the input string.</param>
+        /// <param name="parser">Converts the input string to a list of tuples.</param>
+        /// <param name="dictionary">Translation dictionary</param>
         public PadTranslator(IPadInputPreprocessor preprocessor, IPadInputValidator inputValidator, IPadInputParser parser, IPadDictionary dictionary)
         {
             this.preprocessor = preprocessor;
@@ -25,6 +40,13 @@ namespace PhonePadTranslation
             this.dictionary = dictionary;
         }
 
+        /// <summary>
+        /// Main method for translating input to old phone pad.
+        ///
+        /// It raises exceptions in case of incorrect input.
+        /// </summary>
+        /// <param name="input">String input of required format.</param>
+        /// <returns>Translated result.</returns>
         public string OldPhonePad(string input)
         {
             StringBuilder result = new StringBuilder();
