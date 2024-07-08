@@ -3,22 +3,54 @@ using System.Text.RegularExpressions;
 
 namespace PhonePadTranslation
 {
+    /// <summary>
+    /// Prepares the input string for further processing.
+    ///
+    /// Removes extra spaces and trims the string by the terminator.
+    /// </summary>
     public class Preprocessor : IPreprocessor
     {
         private readonly char TERMINATOR = '#';
 
-        private string inputString;
+        private String inputString;
         private StringBuilder result;
 
-        public Preprocessor()
+        /// <summary>
+        /// Creates a new Preprocessor instance with an empty input string.
+        /// </summary>
+        public Preprocessor() : this(String.Empty) { }
+
+        /// <summary>
+        /// Creates a new Preprocessor instance.
+        /// </summary>
+        /// <param name="inputString">string value to be prepared for parser</param>
+        public Preprocessor(String inputString)
         {
-            result = new StringBuilder();
+            this.inputString = inputString;
+            this.result = new StringBuilder();
         }
 
-        public string Preprocess(string input)
+        /// <summary>
+        /// Checks the input string for presence, removes extra spaces and trims the string by the terminator.
+        ///
+        /// It doesn't actually checks the string for correctness, only prepares it for further processing.
+        /// </summary>
+        /// <param name="inputString">string value to be prepared for parser</param>
+        /// <returns></returns>
+        public String Preprocess(String inputString)
         {
-            this.inputString = input;
+            this.inputString = inputString;
+            return Preprocess();
+        }
 
+        /// <summary>
+        /// Checks the input string for presence, removes extra spaces and trims the string by the terminator.
+        ///
+        /// It doesn't actually checks the string for correctness, only prepares it for further processing.
+        /// </summary>
+        /// <returns>Preprocessed string; it could match the initial string</returns>
+        public String Preprocess()
+        {
             validateInput();
             compactSpaces();
             trimByTerminator();
@@ -28,7 +60,7 @@ namespace PhonePadTranslation
 
         private void validateInput()
         {
-            if (string.IsNullOrEmpty(inputString))
+            if (String.IsNullOrEmpty(inputString))
             {
                 throw new System.ArgumentException("Input cannot be empty");
             }
@@ -53,13 +85,12 @@ namespace PhonePadTranslation
 
         private void trimByTerminator()
         {
-            var terminatorIndex = inputString.IndexOf(TERMINATOR);
+            var terminatorIndex = result.ToString().IndexOf(TERMINATOR);
 
-            result.Append(
-                terminatorIndex >= 0 ?
-                    inputString.Substring(0, terminatorIndex - 1) :
-                    inputString
-             );
+            if (terminatorIndex >= 0)
+            {
+                result.Remove(terminatorIndex + 1, result.Length - terminatorIndex - 1);
+            }
         }
     }
 }

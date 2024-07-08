@@ -2,6 +2,7 @@ namespace PhonePadTranslation
 {
     public interface IPreprocessor
     {
-        public String Preprocess(String input);
+        public String Preprocess();
+        public String Preprocess(String inputString);
     }
 }
