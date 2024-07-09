@@ -13,7 +13,7 @@ namespace PhonePadTranslation
         private readonly char TERMINATOR = '#';
 
         private string inputString;
-        private StringBuilder result;
+        private readonly StringBuilder result;
 
         /// <summary>
         /// Creates a new PadInputPreprocessor instance with an empty input string.

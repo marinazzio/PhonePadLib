@@ -11,7 +11,7 @@ namespace PhonePadTranslation
     {
         private readonly string SPLIT_REGEX = @"([\w*])\1*|\s+";
 
-        private List<(char, int)> result;
+        private readonly List<(char, int)> result;
 
         /// <summary>
         /// Default constructor.
