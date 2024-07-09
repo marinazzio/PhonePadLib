@@ -5,10 +5,10 @@
     /// </summary>
     public class PadInputValidator : IPadInputValidator
     {
-        private static readonly HashSet<char> permittedChars = new HashSet<char>
-        {
+        private static readonly HashSet<char> permittedChars =
+        [
             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '#', ' ', '*'
-        };
+        ];
 
         /// <summary>
         /// Main validation method.
@@ -27,7 +27,7 @@
 
         private void validateEmpty(string input)
         {
-            if (String.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(input))
             {
                 throw new ArgumentException("Input cannot be empty");
             }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PhonePadTranslation.Tests
+﻿namespace PhonePadTranslation.Tests
 {
     public class PadDictionaryTests
     {
@@ -13,7 +7,7 @@ namespace PhonePadTranslation.Tests
         private char inputDigit;
         private int inputPosition;
 
-        private Random random = new Random();
+        private readonly Random random = new();
 
         [SetUp]
         public void Setup()
@@ -22,7 +16,7 @@ namespace PhonePadTranslation.Tests
 
             inputDigit = random.Next(0, 9).ToString()[0];
 
-            var upperLimit = getUpperLimitByDigit(inputDigit);
+            int upperLimit = getUpperLimitByDigit(inputDigit);
             inputPosition = random.Next(1, upperLimit);
         }
 
