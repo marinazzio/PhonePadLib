@@ -49,7 +49,7 @@ namespace PhonePadTranslation
         /// <returns>Translated result.</returns>
         public string OldPhonePad(string input)
         {
-            StringBuilder result = new StringBuilder();
+            StringBuilder result = new();
 
             var prerpocessedInput = preprocessor.Preprocess(input);
             inputValidator.ValidatePadInput(prerpocessedInput);

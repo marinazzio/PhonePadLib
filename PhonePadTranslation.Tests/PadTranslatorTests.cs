@@ -11,7 +11,7 @@ namespace PhonePadTranslation.Tests
         private Mock<IPadInputParser> parser;
         private Mock<IPadDictionary> dictionary;
 
-        private static readonly Dictionary<(char, int), char> mockedDictionary = new Dictionary<(char, int), char>
+        private static readonly Dictionary<(char, int), char> mockedDictionary = new()
         {
             { ('2', 1), 'A' },
             { ('2', 2), 'B' },

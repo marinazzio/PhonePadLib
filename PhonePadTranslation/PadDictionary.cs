@@ -5,8 +5,8 @@
     /// </summary>
     public class PadDictionary : IPadDictionary
     {
-        private static readonly Dictionary<char, char[]> charsMatrix = new Dictionary<char, char[]>
-            {
+        private static readonly Dictionary<char, char[]> charsMatrix = new()
+        {
                 { '1', new char[] { '&', '\'', '(' } },
                 { '2', new char[] { 'A', 'B', 'C' } },
                 { '3', new char[] { 'D', 'E', 'F' } },

@@ -7,7 +7,7 @@
         private char inputDigit;
         private int inputPosition;
 
-        private readonly Random random = new Random();
+        private readonly Random random = new();
 
         [SetUp]
         public void Setup()
