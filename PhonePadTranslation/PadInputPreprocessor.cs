@@ -18,7 +18,7 @@ namespace PhonePadTranslation
         /// <summary>
         /// Creates a new PadInputPreprocessor instance with an empty input string.
         /// </summary>
-        public PadInputPreprocessor() : this(String.Empty) { }
+        public PadInputPreprocessor() : this(string.Empty) { }
 
         /// <summary>
         /// Creates a new PadInputPreprocessor instance.
@@ -60,7 +60,7 @@ namespace PhonePadTranslation
 
         private void validateInput()
         {
-            if (String.IsNullOrEmpty(inputString))
+            if (string.IsNullOrEmpty(inputString))
             {
                 throw new System.ArgumentException("Input cannot be empty");
             }

@@ -27,7 +27,7 @@
 
         private void validateEmpty(string input)
         {
-            if (String.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(input))
             {
                 throw new ArgumentException("Input cannot be empty");
             }
