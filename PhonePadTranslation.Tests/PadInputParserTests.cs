@@ -53,7 +53,7 @@
         public void Parse_InputWithStar_OmitsTupleBeforeStar()
         {
             var input = "8 88777444666*664#";
-            var expected = new List<(char, int)> { 
+            var expected = new List<(char, int)> {
                 ('8', 1),
                 ('8', 2),
                 ('7', 3),

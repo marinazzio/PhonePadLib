@@ -1,5 +1,4 @@
 using Moq;
-using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace PhonePadTranslation.Tests
