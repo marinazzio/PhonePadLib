@@ -16,7 +16,7 @@
 
             inputDigit = random.Next(0, 9).ToString()[0];
 
-            var upperLimit = getUpperLimitByDigit(inputDigit);
+            int upperLimit = getUpperLimitByDigit(inputDigit);
             inputPosition = random.Next(1, upperLimit);
         }
 

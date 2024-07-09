@@ -85,7 +85,7 @@ namespace PhonePadTranslation
 
         private void trimByTerminator()
         {
-            var terminatorIndex = result.ToString().IndexOf(TERMINATOR);
+            int terminatorIndex = result.ToString().IndexOf(TERMINATOR);
 
             if (terminatorIndex >= 0)
             {

@@ -70,7 +70,7 @@ namespace PhonePadTranslation.Tests
 
         private void setupSequence()
         {
-            var sequence = new MockSequence();
+            MockSequence sequence = new();
 
             preprocessor
                 .InSequence(sequence)
@@ -102,8 +102,8 @@ namespace PhonePadTranslation.Tests
                         new List<(char, int)>(),
                         (acc, match) =>
                         {
-                            var value = match.Value;
-                            var count = value.Length;
+                            string value = match.Value;
+                            int count = value.Length;
 
                             if (value == "*")
                             {

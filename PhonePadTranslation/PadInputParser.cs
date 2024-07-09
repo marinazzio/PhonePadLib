@@ -28,12 +28,12 @@ namespace PhonePadTranslation
         /// <returns>List of tuples for further using with the dictionary.</returns>
         public List<(char, int)> Parse(string input)
         {
-            var matches = Regex.Matches(input, SPLIT_REGEX);
+            MatchCollection matches = Regex.Matches(input, SPLIT_REGEX);
 
             matches.ToList().ForEach(match =>
             {
-                var value = match.Value;
-                var count = value.Length;
+                string value = match.Value;
+                int count = value.Length;
 
                 if (value == "*")
                 {
