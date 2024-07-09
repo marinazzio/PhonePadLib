@@ -142,7 +142,7 @@ namespace PhonePadTranslation.Tests
         {
             setupSequence();
 
-            stubDictionaryByList(new List<(char, int)> { ('2', 3) });
+            stubDictionaryByList([('2', 3)]);
 
             subject.OldPhonePad("222#");
 
@@ -157,7 +157,7 @@ namespace PhonePadTranslation.Tests
         [Test]
         public void OldPhonePad_TranslatesOneChar()
         {
-            stubDictionaryByList(new List<(char, int)> { ('2', 3) });
+            stubDictionaryByList([('2', 3)]);
 
             Assert.That(subject.OldPhonePad("222#"), Is.EqualTo("C"));
         }
@@ -165,7 +165,7 @@ namespace PhonePadTranslation.Tests
         [Test]
         public void OldPhonePad_TranslatesMultipleChars()
         {
-            stubDictionaryByList(new List<(char, int)> { ('2', 1), ('3', 1), ('4', 1), ('5', 1) });
+            stubDictionaryByList([('2', 1), ('3', 1), ('4', 1), ('5', 1)]);
 
             Assert.That(subject.OldPhonePad("2345#"), Is.EqualTo("ADGJ"));
         }
@@ -173,7 +173,7 @@ namespace PhonePadTranslation.Tests
         [Test]
         public void OldPhonePad_GivenTest1()
         {
-            stubDictionaryByList(new List<(char, int)> { ('3', 2) });
+            stubDictionaryByList([('3', 2)]);
 
             Assert.That(subject.OldPhonePad("33#"), Is.EqualTo("E"));
         }
@@ -181,7 +181,7 @@ namespace PhonePadTranslation.Tests
         [Test]
         public void OldPhonePad_GivenTest2()
         {
-            stubDictionaryByList(new List<(char, int)> { ('2', 2) });
+            stubDictionaryByList([('2', 2)]);
 
             Assert.That(subject.OldPhonePad("227*#"), Is.EqualTo("B"));
         }
@@ -189,7 +189,7 @@ namespace PhonePadTranslation.Tests
         [Test]
         public void OldPhonePad_GivenTest3()
         {
-            stubDictionaryByList(new List<(char, int)> { ('3', 2), ('4', 2), ('5', 3), ('6', 3) });
+            stubDictionaryByList([('3', 2), ('4', 2), ('5', 3), ('6', 3)]);
 
             Assert.That(subject.OldPhonePad("4433555 555666#"), Is.EqualTo("HELLO"));
         }
@@ -197,7 +197,7 @@ namespace PhonePadTranslation.Tests
         [Test]
         public void OldPhonePad_GivenTest4()
         {
-            stubDictionaryByList(new List<(char, int)> { ('4', 1), ('4', 3), ('6', 2), ('7', 3), ('8', 1), ('8', 2) });
+            stubDictionaryByList([('4', 1), ('4', 3), ('6', 2), ('7', 3), ('8', 1), ('8', 2)]);
 
             Assert.That(subject.OldPhonePad("8 88777444666*664#"), Is.EqualTo("TURING"));
         }

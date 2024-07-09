@@ -18,7 +18,7 @@ namespace PhonePadTranslation
         /// </summary>
         public PadInputParser()
         {
-            result = new List<(char, int)>();
+            result = [];
         }
 
         /// <summary>
